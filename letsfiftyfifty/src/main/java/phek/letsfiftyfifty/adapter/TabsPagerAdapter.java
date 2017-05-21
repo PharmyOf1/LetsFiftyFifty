@@ -1,40 +1,24 @@
 package phek.letsfiftyfifty.adapter;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import phek.letsfiftyfifty.fragment.FavoritesFragment;
-import phek.letsfiftyfifty.fragment.HomeFragment;
-import phek.letsfiftyfifty.fragment.MyLocationFragment;
+import phek.letsfiftyfifty.R;
 
-public class TabsPagerAdapter extends FragmentPagerAdapter {
 
-    public TabsPagerAdapter(FragmentManager fm) {
-        super(fm);
-    }
+public class TabsPagerAdapter extends Fragment {
 
     @Override
-    public Fragment getItem(int index) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(
+                R.layout.content_main, container, false);
 
-        switch (index) {
-            case 0:
-                // Top Rated fragment activity
-                return new HomeFragment();
-            case 1:
-                // Games fragment activity
-                return new FavoritesFragment();
-            case 2:
-                // Movies fragment activity
-                return new MyLocationFragment();
-        }
-
-        return null;
-    }
-
-    @Override
-    public int getCount() {
-        // get item count - equal to number of tabs
-        return 3;
+        return rootView;
     }
 }
+
+
